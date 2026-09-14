@@ -29,11 +29,21 @@ PRODUCTS = [
 ]
 
 
-def run() -> None:
+def run(reset: bool = False) -> None:
+    """Crea el esquema y carga datos de ejemplo.
+
+    Es idempotente: si ya hay usuarios, no toca nada. Así puede correr en cada
+    despliegue sin borrar los datos existentes. Con --reset borra y recarga.
+    """
     app = create_app()
     with app.app_context():
-        db.drop_all()
+        if reset:
+            db.drop_all()
         db.create_all()
+
+        if User.query.first() is not None:
+            print("La base ya tiene datos. No se carga nada (usar --reset para recargar).")
+            return
 
         users = {}
         for username, email, password, role in USERS:
@@ -75,4 +85,6 @@ def run() -> None:
 
 
 if __name__ == "__main__":
-    run()
+    import sys
+
+    run(reset="--reset" in sys.argv)
