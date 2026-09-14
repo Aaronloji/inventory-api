@@ -7,7 +7,7 @@ Construida sobre un caso real: control de existencias de repuestos y consumibles
 ![Documentación Swagger](docs/swagger.png)
 
 - **Documentación interactiva:** `http://localhost:5000/docs`
-- **Frontend que la consume:** [inventory-dashboard](https://github.com/TU-USUARIO/inventory-dashboard)
+- **Frontend que la consume:** [inventory-dashboard](https://github.com/Aaronloji/inventory-dashboard)
 
 ## Stack
 
@@ -64,7 +64,7 @@ Construida sobre un caso real: control de existencias de repuestos y consumibles
 ### Con Docker (recomendado)
 
 ```bash
-git clone https://github.com/TU-USUARIO/inventory-api.git
+git clone https://github.com/Aaronloji/inventory-api.git
 cd inventory-api
 docker compose up --build -d
 docker compose exec api python seed.py   # datos de ejemplo
