@@ -4,10 +4,17 @@ API REST para control de inventario con autenticación JWT, permisos por rol y d
 
 Construida sobre un caso real: control de existencias de repuestos y consumibles en planta.
 
-![Documentación Swagger](docs/swagger.png)
+## Demo en vivo
 
-- **Documentación interactiva:** `http://localhost:5000/docs`
-- **Frontend que la consume:** [inventory-dashboard](https://github.com/Aaronloji/inventory-dashboard)
+| | |
+|---|---|
+| **Documentación interactiva (Swagger)** | https://inventory-api-xdk7.onrender.com/docs |
+| **Dashboard que consume este API** | https://inventory-dashboard-mfxf.onrender.com |
+| **Credenciales** | `admin` / `admin1234` · `bodega` / `bodega1234` · `consulta` / `consulta1234` |
+
+> Corre en el plan gratuito de Render: si estuvo sin tráfico, la primera petición puede tardar cerca de un minuto en despertar el servicio.
+
+![Documentación Swagger](docs/swagger.png)
 
 ## Stack
 
