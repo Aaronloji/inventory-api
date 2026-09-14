@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect
 from flask_cors import CORS
 
 from app.config import Config
@@ -27,13 +27,18 @@ def create_app(config_class=Config) -> Flask:
     rest_api.register_blueprint(movements_blp)
     rest_api.register_blueprint(users_blp)
 
+    @app.get("/")
+    def index():
+        """La raiz lleva a la documentacion interactiva."""
+        return redirect("/docs")
+
     @app.get("/health")
     def health():
         return jsonify(status="ok")
 
     @jwt.expired_token_loader
     def expired_token(_header, _payload):
-        return jsonify(message="El token expiró."), 401
+        return jsonify(message="El token expiro."), 401
 
     @jwt.unauthorized_loader
     def missing_token(reason):
